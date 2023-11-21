@@ -1,0 +1,31 @@
+.profile__cover {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  background: rgba(0, 0, 0, 0.80);
+  background-image: url(../../../images/edit-avatar.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 26px 26px;
+  cursor: pointer;
+  opacity: 0;
+  transition: visibility 0s ease-out .6s, opacity .6s;
+
+}
+
+@media screen and (max-width: 550px) {
+  .profile__cover {
+    top: 42px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    }
+}
+
+.profile__cover:hover {
+  opacity: 1;
+  transition: opacity .6s;
+}

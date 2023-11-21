@@ -1,0 +1,13 @@
+.unauthorized {
+    width: 358px;
+    margin: 0 auto 97px;
+    }
+  
+  
+  @media screen and (max-width: 426px) {
+    .unauthorized {
+      width: 260px;
+      margin-bottom: 57px;
+  }
+  }
+  

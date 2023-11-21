@@ -1,0 +1,15 @@
+.popup__result-image {
+    width: 120px;
+    height: 120px;
+    display: block;
+    object-fit: contain;
+    margin-top: 26px;
+    margin-bottom: 32px; 
+}
+
+@media screen and (max-width: 426px) {
+    .popup__result-image {
+        margin-top: 16px;
+        margin-bottom: 40px;
+    }
+}

@@ -1,0 +1,16 @@
+.unauthorized__input {
+    margin-top: 30px;
+    margin-bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #CCC;
+    padding: 0 0 13px;
+    color: #CCC;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    background-color: #000;
+}

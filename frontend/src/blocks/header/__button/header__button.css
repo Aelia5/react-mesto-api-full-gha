@@ -1,0 +1,21 @@
+.header__button {
+    display: none;
+    width: 24px;
+    height: 24px;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: opacity .5s linear;
+}
+
+.header__button:hover {
+    opacity: .6;
+}
+
+@media screen and (max-width: 426px) {
+    .header__button {
+        display: block;
+    }
+}

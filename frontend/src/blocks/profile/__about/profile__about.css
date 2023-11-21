@@ -1,0 +1,42 @@
+.profile__about {
+  max-width: 544px; /*460px;*/
+  grid-column: 2/4;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.22;
+  color: #fff;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1080px) {
+  .profile__about {
+    font-size: calc( (100vw - 880px)/(1080 - 880) * (18 - 14) + 14px);
+    max-width: calc(80vw - 419px);
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .profile__about {
+    font-size: 14px;
+    line-height: 17px;
+    max-width: calc(80vw - 155px);
+    }
+}
+
+@media screen and (max-width: 550px) {
+  .profile__about {
+  grid-column: 2/3;
+  max-width: calc(80vw - 56px);
+  text-align: center;
+}
+}
+
+@media screen and (max-width: 426px) {
+  .profile__about {
+    max-width: 254px;
+  }
+}

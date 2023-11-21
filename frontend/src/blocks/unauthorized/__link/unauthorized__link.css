@@ -1,0 +1,19 @@
+.unauthorized__link {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: #FFF;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+    transition: opacity .5s linear;
+}
+
+.unauthorized__link:hover {
+    opacity: 0.6;
+}
