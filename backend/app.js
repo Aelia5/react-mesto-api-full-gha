@@ -12,6 +12,7 @@ const { errors } = require('celebrate');
 const app = express();
 const router = require('./routes/index');
 const { handleError } = require('./middlewares/handleError');
+const { cors } = require('./middlewares/cors');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
@@ -31,6 +32,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 app.use(requestLogger);
+app.use(cors);
 app.use(router);
 
 app.use(errorLogger);
