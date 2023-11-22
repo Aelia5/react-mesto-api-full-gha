@@ -89,7 +89,7 @@ class Api {
 }
 
 export const api = new Api({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-73',
+  baseUrl: 'https://api.aelia.students.nomoredomainsmonster.ru',
   headers: {
     authorization: '0453871b-7ff0-422b-ba15-a21262966d2d',
     'Content-type': 'application/json',
