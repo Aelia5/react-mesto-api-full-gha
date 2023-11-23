@@ -91,7 +91,7 @@ class Api {
 export const api = new Api({
   baseUrl: 'https://api.aelia.students.nomoredomainsmonster.ru',
   headers: {
-    authorization: '0453871b-7ff0-422b-ba15-a21262966d2d',
+    authorization: `Bearer ${localStorage.getItem('token')}`,
     'Content-type': 'application/json',
   },
 });

@@ -2,6 +2,8 @@ const jwt = require('jsonwebtoken');
 const UnauthorizedError = require('../errors/unauthorized-err');
 
 module.exports.auth = (req, res, next) => {
+  console.log('Идёт авторизация');
+  console.log(req.headers);
   const { authorization } = req.headers;
   if (!authorization || !authorization.startsWith('Bearer ')) {
     throw new UnauthorizedError('Необходима авторизация');

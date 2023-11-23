@@ -27,7 +27,6 @@ export function login(password, email) {
 export function checkToken(token) {
   return fetch(`${BASE_URL}/users/me`, {
     method: 'GET',
-    credentials: 'include', 
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
