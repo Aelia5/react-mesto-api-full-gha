@@ -171,10 +171,10 @@ function App() {
       });
   }
 
-  function authorize(email) {
+  function authorize(email, id) {
     setLoggedIn(true);
     setEmail(email);
-  }
+    }
 
   function onSignOut() {
     localStorage.removeItem('token');

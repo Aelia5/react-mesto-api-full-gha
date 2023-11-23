@@ -140,17 +140,7 @@ module.exports.login = (req, res, next) => {
     })
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, '075b1f9d4795eb0cda96f34e1bd1d072fb1d86ad38e54bea0dfb5a041ddec676', { expiresIn: '7d' });
-      res.cookie('token', token, {
-        maxAge: 3600000 * 24 * 7,
-        httpOnly: true,
-        sameSite: true,
-      }).send({
-        _id: user._id,
-        name: user.name,
-        about: user.about,
-        avatar: user.avatar,
-        email: user.email,
-      });
+      res.send({ token });
     })
     .catch((err) => {
       next(err);
