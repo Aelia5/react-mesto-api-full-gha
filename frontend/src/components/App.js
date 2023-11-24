@@ -162,8 +162,8 @@ function App() {
       .login(password, email)
       .then((res) => {
         localStorage.setItem('token', res.token);
-        authorize(email);
-      })
+      }).then(() => authorize(email)
+      )
       .catch((err) => {
         setIsSuccessInfoTooltipStatus(false);
         setIsInfoToolTipOpen(true);
@@ -171,7 +171,7 @@ function App() {
       });
   }
 
-  function authorize(email, id) {
+  function authorize(email) {
     setLoggedIn(true);
     setEmail(email);
     }
@@ -180,6 +180,7 @@ function App() {
     localStorage.removeItem('token');
     setLoggedIn(false);
     setEmail('');
+    setCurrentUser({});
   }
 
   // Эффекты
@@ -191,7 +192,7 @@ function App() {
         auth
           .checkToken(token)
           .then((res) => {
-            return res.data;
+            return res;
           })
           .then((userData) => authorize(userData.email))
           .catch((err) => console.log(err));
