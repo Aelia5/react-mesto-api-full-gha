@@ -1,8 +1,7 @@
 class Api {
-  constructor(options) {
-    this._baseUrl = options.baseUrl;
-    this._headers = options.headers;
-  }
+  constructor(baseUrl) {
+    this._baseUrl = baseUrl;
+    }
 
   _onResponse(res) {
     if (res.ok) {
@@ -14,7 +13,8 @@ class Api {
 
   getProfileData() {
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers,
+      headers: {authorization: `Bearer ${localStorage.getItem('token')}`,
+      'Content-type': 'application/json',},
     }).then((res) => {
       return this._onResponse(res);
     });
@@ -22,7 +22,8 @@ class Api {
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers,
+      headers: {authorization: `Bearer ${localStorage.getItem('token')}`,
+      'Content-type': 'application/json',},
     }).then((res) => {
       return this._onResponse(res);
     });
@@ -35,7 +36,8 @@ class Api {
   editProfileData(newData) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {authorization: `Bearer ${localStorage.getItem('token')}`,
+      'Content-type': 'application/json',},
       body: JSON.stringify({
         name: newData.name,
         about: newData.about,
@@ -48,7 +50,8 @@ class Api {
   editAvatar(data) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: {authorization: `Bearer ${localStorage.getItem('token')}`,
+      'Content-type': 'application/json',},
       body: JSON.stringify({
         avatar: data.avatar,
       }),
@@ -60,7 +63,8 @@ class Api {
   postNewCard(newData) {
     return fetch(`${this._baseUrl}/cards`, {
       method: 'POST',
-      headers: this._headers,
+      headers: {authorization: `Bearer ${localStorage.getItem('token')}`,
+      'Content-type': 'application/json',},
       body: JSON.stringify({
         name: newData.name,
         link: newData.link,
@@ -73,7 +77,8 @@ class Api {
   deleteCard(card) {
     return fetch(`${this._baseUrl}/cards/${card._id}`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: {authorization: `Bearer ${localStorage.getItem('token')}`,
+      'Content-type': 'application/json',},
     }).then((res) => {
       return this._onResponse(res);
     });
@@ -81,17 +86,12 @@ class Api {
   toggleLike(card, isLiked) {
     return fetch(`${this._baseUrl}/cards/${card._id}/likes`, {
       method: isLiked ? 'DELETE' : 'PUT',
-      headers: this._headers,
+      headers: {authorization: `Bearer ${localStorage.getItem('token')}`,
+      'Content-type': 'application/json',},
     }).then((res) => {
       return this._onResponse(res);
     });
   }
 }
 
-export const api = new Api({
-  baseUrl: 'https://api.aelia.students.nomoredomainsmonster.ru',
-  headers: {
-    authorization: `Bearer ${localStorage.getItem('token')}`,
-    'Content-type': 'application/json',
-  },
-});
+export const api = new Api('https://api.aelia.students.nomoredomainsmonster.ru');
