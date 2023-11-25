@@ -26,7 +26,7 @@ module.exports.createCard = (req, res, next) => {
 
 module.exports.getCards = (req, res, next) => {
   Card.find({}).populate('owner')
-    .then((cards) => res.send(cards))
+    .then((cards) => res.send(cards.reverse()))
     .catch((err) => {
       next(err);
     });
