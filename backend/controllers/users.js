@@ -14,6 +14,8 @@ const {
 const notFoundMessage = 'Такой пользователь не существует';
 const unauthorizedMessage = 'Неправильные почта или пароль';
 
+const { SUCCESS_CODE } = require('../utils/constants');
+
 module.exports.createUser = (req, res, next) => {
   bcrypt.hash(req.body.password, 10)
     .then((hash) => {
@@ -24,7 +26,7 @@ module.exports.createUser = (req, res, next) => {
         email: req.body.email,
         password: hash,
       })
-        .then((user) => res.send({
+        .then((user) => res.status(SUCCESS_CODE).send({
           _id: user._id,
           name: user.name,
           about: user.about,

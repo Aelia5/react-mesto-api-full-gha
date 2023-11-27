@@ -1,3 +1,4 @@
+const SUCCESS_CODE = 201;
 const VALIDATION_ERROR_CODE = 400;
 const UNAUTHORIZED_ERROR_CODE = 401;
 const FORBIDDEN_ERROR_CODE = 403;
@@ -10,6 +11,7 @@ const validationErrorMessage = 'Отправлены некорректные д
 const defaultErrorMessage = 'На сервере произошла ошибка';
 
 module.exports = {
+  SUCCESS_CODE,
   VALIDATION_ERROR_CODE,
   FORBIDDEN_ERROR_CODE,
   UNAUTHORIZED_ERROR_CODE,

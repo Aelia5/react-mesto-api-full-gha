@@ -11,11 +11,13 @@ const {
 const notFoundMessage = 'Такой карточки не существует';
 const forbiddenMessage = 'Вы не можете удалить чужую карточку';
 
+const { SUCCESS_CODE } = require('../utils/constants');
+
 module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
   Card.create({ name, link, owner: req.user._id })
     .then((card) => Card.findById(card._id).populate('owner'))
-    .then((card) => res.send(card))
+    .then((card) => res.status(SUCCESS_CODE).send(card))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new ValidationError(validationErrorMessage));
@@ -60,7 +62,7 @@ module.exports.putLike = (req, res, next) => {
     req.params.cardId,
     { $addToSet: { likes: req.user._id } },
     { new: true },
-  )
+  ).populate('owner')
     .then((card) => {
       if (!card) {
         throw new NotFoundError(notFoundMessage);
@@ -81,7 +83,7 @@ module.exports.deleteLike = (req, res, next) => {
     req.params.cardId,
     { $pull: { likes: req.user._id } },
     { new: true },
-  )
+  ).populate('owner')
     .then((card) => {
       if (!card) {
         throw new NotFoundError(notFoundMessage);
