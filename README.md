@@ -7,7 +7,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 84.201.178.216
+IP 84.201.178.216
 
 Frontend https://aelia.students.nomoredomainsmonster.ru/
 
