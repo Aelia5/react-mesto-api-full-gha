@@ -3,7 +3,9 @@ const allowedCors = [
   'http://aelia.students.nomoredomainsmonster.ru',
   'https://api.aelia.students.nomoredomainsmonster.ru',
   'http://api.aelia.students.nomoredomainsmonster.ru',
+  'http://localhost:3001',
   'http://localhost:3000',
+
 ];
 
 module.exports.cors = (req, res, next) => {

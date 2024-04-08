@@ -1,4 +1,4 @@
-const BASE_URL = 'https://api.aelia.students.nomoredomainsmonster.ru';
+const BASE_URL = 'http://localhost:3001';
 
 function onResponse(res) {
   if (res.ok) {

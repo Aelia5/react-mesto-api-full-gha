@@ -4,7 +4,7 @@ const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3001 } = process.env;
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
